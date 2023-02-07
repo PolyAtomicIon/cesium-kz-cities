@@ -7,7 +7,7 @@ Interactive 3D Earth view of Kazakhstan with satellite imagery
 Visual representation of major cities in Kazakhstan with label and pop-up information
 Zoom in/out and panning capability to view the cities and surrounding areas in detail
 Usage
-To use the demo, simply visit [cesium-demo.abmco.kz](cesium-demo.abmco.kz. The demo will load and display the 3D Earth view of Kazakhstan. You can zoom in and out to view the cities and their surrounding areas in detail. You can also pan the view to explore different parts of the country.
+To use the demo, simply visit [cesium-demo.abmco.kz](cesium-demo.abmco.kz). The demo will load and display the 3D Earth view of Kazakhstan. You can zoom in and out to view the cities and their surrounding areas in detail. You can also pan the view to explore different parts of the country.
 
 Click on a city marker to see its label and pop-up information, which includes the city's name and its coordinates.
 
