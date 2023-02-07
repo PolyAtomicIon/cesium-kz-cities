@@ -14,5 +14,5 @@ Click on a city marker to see its label and pop-up information, which includes t
 ### Technical Details
 The demo is built using the CesiumJS library, which is an open-source library for creating high-performance 3D globes and maps. The satellite imagery and city data used in the demo is sourced from open and publicly available datasets.
 
-###Conclusion
+### Conclusion
 We hope you enjoy using this demo of Kazakhstan cities on the 3D Earth. If you have any questions or feedback, please feel free to reach out to us. Thank you for your interest!
