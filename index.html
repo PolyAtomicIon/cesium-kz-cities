@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Include the CesiumJS JavaScript and CSS files -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.102/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.102/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="cesiumContainer"></div>
+    <ul id="cities" class="cities-list"></ul>
+
+    <script>
+        // Cesium.Ion.defaultAccessToken = 'your token';
+        // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
+        const viewer = new Cesium.Viewer('cesiumContainer', {});
+        const height = 400;
+
+        // read data from locations.json using js
+        fetch('locations.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const citiesList = document.getElementById('cities');
+                data.forEach(city => {
+                    // add city name to the list and add event listeners
+                    const li = document.createElement('li');
+                    const btn = document.createElement('button');
+                    btn.innerHTML = city.city;
+                    btn.addEventListener('click', () => {
+                        // Fly the camera to city at the given longitude, latitude, and height.
+                        viewer.camera.flyTo({
+                            destination: Cesium.Cartesian3.fromDegrees(city.lng, city.lat, height),
+                            orientation: {
+                                heading: Cesium.Math.toRadians(0.0),
+                                pitch: Cesium.Math.toRadians(-15.0),
+                            }
+                        });
+                    })
+                    li.append(btn);
+                    citiesList.appendChild(li);
+
+                    // add pin to the map by the city location city.lng, city.lat
+                    viewer.entities.add({
+                        name: city.city,
+                        position: Cesium.Cartesian3.fromDegrees(city.lng, city.lat, height),
+                        billboard: {
+                            image: 'pin.png',
+                            width: 32,
+                            height: 32,
+                            verticalOrigin: Cesium.VerticalOrigin.BOTTOM
+                        }
+                    });
+                })
+            })
+            .catch(error => {
+                console.error('Error reading data from file', error);
+            });
+    </script>
+    </div>
+</body>
+
+</html>

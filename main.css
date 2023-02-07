@@ -1,0 +1,48 @@
+body {
+    background: #000;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.cities-list {
+    margin: 0;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgb(39, 36, 36);
+    color: #fefefe;
+    padding: 0;
+    border-radius: 5px;
+    width: 170px;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    list-style: none;
+}
+
+.cities-list li {
+    display: inline-block;
+    width: 100%;
+}
+
+.cities-list button {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    color: #fefefe;
+    font-size: 0.7rem;
+    width: 100%;
+    padding: 8px 4px;
+    padding-left: 20px;
+    cursor: pointer;
+    transition: 0.2s background-color ease;
+}
+
+.cities-list button:hover {
+    background-color: #6f6f5a;
+}
+
+.cities-list button:active,
+.cities-list button:focus {
+    background-color: #515141;
+}
